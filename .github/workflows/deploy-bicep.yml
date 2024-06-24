@@ -1,5 +1,5 @@
 name: Deploy Bicep file
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,7 +17,6 @@ jobs:
       uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
-        
         inlineScript: |
           az group create -g ${{ secrets.AZURE_RG }} --location eastus
 
