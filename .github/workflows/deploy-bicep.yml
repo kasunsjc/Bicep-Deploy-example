@@ -28,4 +28,4 @@ jobs:
         template: ./main.bicep
         parameters: ./main.bicepparam
         failOnStdErr: true
-        scope: 'Resource Group'
+        scope: 'resourcegroup'
