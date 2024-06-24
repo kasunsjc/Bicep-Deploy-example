@@ -12,19 +12,13 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    - name: Select Azure Subscription
-      uses: azure/CLI@v1
-      with:
-        azcliversion: 2.0.72
-        inlineScript: |
-          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
-    
+        
     - name: Create a Resource Group
       uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
         inlineScript: |
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
           az group create --name ${{ secrets.AZURE_RG }} --location eastus
 
     - name: Deploy Bicep file
