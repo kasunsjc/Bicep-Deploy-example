@@ -16,7 +16,7 @@ jobs:
     - name: Create a Resource Group
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
+        azcliversion: latest
         inlineScript: |
           az group create -g ${{ secrets.AZURE_RG }} --location eastus
 
